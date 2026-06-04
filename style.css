@@ -377,14 +377,16 @@ img {
 }
 
 .hero-intro {
-    font-size: 1.125rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    font-family: var(--font-heading);
 }
 
 .hero-intro::before {
@@ -674,37 +676,40 @@ img {
 }
 
 /* --- ABOUT & TIMELINE --- */
-.about-wrapper {
-    display: grid;
-    grid-template-columns: 4fr 6fr;
-    gap: 5rem;
-    align-items: center;
+.about-container {
+    max-width: 850px;
+    margin: 0 auto;
 }
 
-.about-img-frame {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    aspect-ratio: 0.85;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+#about .section-tag {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
 }
 
-.about-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+#about .section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.about-details {
+.about-bios {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.75rem;
 }
 
 .about-bio {
-    font-size: 1.15rem;
-    line-height: 1.8;
+    font-size: 1.25rem;
+    line-height: 1.85;
     color: var(--text-secondary);
 }
 
@@ -1001,13 +1006,8 @@ img {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .about-wrapper {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    .about-img-frame {
-        max-width: 400px;
-        margin: 0 auto;
+    #about .section-title {
+        font-size: 2.75rem;
     }
     .contact-wrapper {
         grid-template-columns: 1fr;
