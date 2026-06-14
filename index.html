@@ -1,17 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kavitha Bharathi G — UI/UX Designer & Product Thinker</title>
-    <meta name="description" content="Portfolio of Kavitha Bharathi G, a senior UI/UX designer crafting high-impact digital products, design systems, and seamless user experiences.">
+    <title>Kavitha Bharathi G — UX/UI Designer & Product Thinker</title>
+    <meta name="description" content="Portfolio of Kavitha Bharathi G, a senior UX/UI designer crafting high-impact digital products, design systems, and seamless user experiences.">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-page-body">
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" id="customCursor"></div>
-    <div class="custom-cursor-follower" id="customCursorFollower"></div>
+    <!-- Graphic Design Background Elements -->
+    <div class="bg-graphics-container">
+        <!-- SVG 3D Swirl Ribbons resembling the Windows 11 default flow background in the attached image -->
+        <svg style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1440px; height: 100%; opacity: 0.85; z-index: -9;" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#glow)">
+                <!-- Wave 1 (Light Blue Ribbon) -->
+                <path d="M150,-100 C350,150 450,50 650,250 C850,450 1150,150 1350,300 C1550,450 1450,700 1450,900 L0,900 L0,-100 Z" fill="url(#waveGrad1)" />
+                <!-- Wave 2 (Silver-Blue Swirl) -->
+                <path d="M300,-100 C500,200 750,100 900,300 C1050,500 1200,400 1350,600 C1500,800 1500,900 1500,900 L0,900 L0,-100 Z" fill="url(#waveGrad2)" />
+            </g>
+            <defs>
+                <linearGradient id="waveGrad1" x1="500" y1="-100" x2="1100" y2="700" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+                    <stop offset="30%" stop-color="#dbeafe" stop-opacity="0.6"/>
+                    <stop offset="70%" stop-color="#93c5fd" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.1"/>
+                </linearGradient>
+                <linearGradient id="waveGrad2" x1="600" y1="-100" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#eff6ff" stop-opacity="0.5"/>
+                    <stop offset="50%" stop-color="#bfdbfe" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%" filterUnits="userSpaceOnUse">
+                    <feGaussianBlur stdDeviation="30" result="blur" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="bg-shape shape-circle-2"></div>
+        <div class="bg-shape shape-dots-1"></div>
+        <div class="bg-shape shape-dots-2"></div>
+        <div class="bg-shape shape-plus-1">+</div>
+        <div class="bg-shape shape-plus-2">+</div>
+        <div class="bg-shape shape-grid-accent"></div>
+    </div>
 
     <!-- Navigation Header -->
     <nav class="navbar" id="navbar">
@@ -19,60 +50,43 @@
             <a href="#" class="logo interactive">
                 Kavitha Bharathi<span class="logo-dot"></span>
             </a>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link interactive">About</a></li>
-                <li><a href="#work" class="nav-link interactive">Projects</a></li>
-                <li><a href="#toolkit" class="nav-link interactive">Toolkit</a></li>
-                <li><a href="#contact" class="nav-link interactive">Contact</a></li>
-            </ul>
-            <div class="nav-controls">
-                <button class="theme-btn interactive" id="themeToggle" aria-label="Toggle dark/light theme">
-                    <!-- Moon Icon (Dark Mode) -->
-                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
-                    <!-- Sun Icon (Light Mode) -->
-                    <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 5 5 5.006 5.006 0 0 0-5-5zm0 2a3 3 0 1 1-3 3 3.003 3.003 0 0 1 3-3zm0-7a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0V3a1 1 0 0 0-1-1zm0 16a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-1-1zm10-7h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2zM4 12H2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2zm14.22-6.8a1 1 0 0 0-1.42 0l-1.41 1.41a1 1 0 0 0 1.41 1.42l1.42-1.42a1.002 1.002 0 0 0 0-1.41zM7.2 16.8l-1.42 1.42a1 1 0 1 0 1.42 1.41l1.41-1.41a1 1 0 0 0-1.41-1.42zm11.02.02a1 1 0 0 0-1.41 0l-1.42 1.42a1 1 0 0 0 1.42 1.41l1.41-1.41a1 1 0 0 0 0-1.42zM7.2 7.2a1 1 0 0 0 0-1.41L5.78 4.38a1 1 0 1 0-1.42 1.42l1.42 1.41A1 1 0 0 0 7.2 7.2z"/></svg>
-                </button>
-                <a href="#contact" class="btn-primary interactive">Let's talk</a>
+            <div class="nav-right">
+                <a href="#home" class="nav-item-box interactive">Home</a>
+                <a href="#about" class="nav-item-box interactive">About</a>
+                <a href="#work" class="nav-item-box interactive">Project</a>
+                <a href="#contact" class="nav-item-box interactive lets-talk-nav">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- UI/UX Designer Hero Section -->
+    <!-- UX/UI Designer Hero Section -->
     <header class="hero" id="home">
         <div class="hero-bg">
             <div class="hero-glow-1"></div>
             <div class="hero-glow-2"></div>
+            <div class="hero-glow-3"></div>
         </div>
         <div class="container">
-            <div class="hero-content" style="max-width: 900px;">
-                <span class="hero-intro">UI/UX Designer</span>
-                <h1 class="hero-title">Designing seamless digital products that connect with users.</h1>
-                
-                <div class="hero-ux-info">
-                    <div class="hero-ux-info-item">
-                        <h3><span style="color: var(--accent);">01/</span> User Experience (UX)</h3>
-                        <p>Analyzing user goals, behaviors, and pain points to design logical wireframes and seamless interactive journeys.</p>
-                    </div>
-                    <div class="hero-ux-info-item">
-                        <h3><span style="color: var(--accent);">02/</span> User Interface (UI)</h3>
-                        <p>Crafting modern, accessible layouts, responsive components, and consistent visual systems across platforms.</p>
-                    </div>
-                    <div class="hero-ux-info-item">
-                        <h3><span style="color: var(--accent);">03/</span> Product Design</h3>
-                        <p>Bridging structure and aesthetics to deliver engaging, user-centered digital solutions that solve real-world problems.</p>
+            <div class="hero-content">
+                <div class="hero-box">
+                    <span class="hero-intro">UX/UI Designer</span>
+                    <h1 class="hero-title">Designing seamless digital products that connect with users.</h1>
+                    
+                    <div class="hero-ux-info">
+                        <div class="hero-ux-info-item">
+                            <h3><span style="color: var(--accent);">01/</span> User Experience (UX)</h3>
+                            <p>Analyzing user goals, behaviors, and pain points to design logical wireframes and seamless interactive journeys.</p>
+                        </div>
+                        <div class="hero-ux-info-item">
+                            <h3><span style="color: var(--accent);">02/</span> User Interface (UI)</h3>
+                            <p>Crafting modern, accessible layouts, responsive components, and consistent visual systems across platforms.</p>
+                        </div>
+                        <div class="hero-ux-info-item">
+                            <h3><span style="color: var(--accent);">03/</span> Product Design</h3>
+                            <p>Bridging structure and aesthetics to deliver engaging, user-centered digital solutions that solve real-world problems.</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="hero-actions">
-                    <a href="#work" class="btn-primary interactive">View My Work</a>
-                    <a href="#about" class="btn-secondary interactive">About Me</a>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll Down</span>
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
             </div>
         </div>
     </header>
@@ -80,20 +94,86 @@
     <!-- About Me Section -->
     <section class="section-padding reveal" id="about">
         <div class="container">
-            <div class="about-container">
-                <span class="section-tag">About Me</span>
-                <h2 class="section-title">Designing experiences with purpose & clarity.</h2>
-                
-                <div class="about-bios">
-                    <p class="about-bio">
-                        Hi, I'm Kavitha, a UI/UX Designer passionate about creating user-centered digital experiences that are both functional and visually appealing.
-                    </p>
-                    <p class="about-bio">
-                        For example, when users struggle with a complicated sign-up process, I analyze their pain points, simplify the user flow, and create intuitive designs that improve the overall experience. My goal is to design products that are easy to use, accessible, and impactful.
-                    </p>
-                    <p class="about-bio">
-                        I believe that successful design is about balancing user needs, business goals, and usability principles to create meaningful experiences that people love to use.
-                    </p>
+            <div class="about-box">
+                <div class="about-header-wrapper">
+                    <span class="section-tag">About Me</span>
+                </div>
+
+                <!-- Education, Skills & Tools Grid -->
+                <div class="about-grid-info">
+                    <!-- Education Box -->
+                    <div class="sub-box education-box interactive">
+                        <div class="sub-box-header">
+                            <h3 class="education-header">Education</h3>
+                        </div>
+                        <ul class="sub-box-list-custom">
+                            <li class="edu-item-bold-white">2026</li>
+                            <li class="edu-item-bold-white">Master Program in UX/UI Design (Certification Program)</li>
+                            <li class="edu-divider-container"><hr class="edu-divider-bold-white"></li>
+                            <li class="edu-item-bold-white">2011 – 2015</li>
+                            <li class="edu-item-bold-white">B.Tech in Information Technology</li>
+                            <li class="edu-item-bold-white">Sri Venkateswara College of Engineering</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skills Box -->
+                    <div class="sub-box skills-box interactive">
+                        <div class="sub-box-header">
+                            <h3 class="skills-header">Skills</h3>
+                        </div>
+                        <div class="sub-box-tags">
+                            <span class="mini-tag">User Research</span>
+                            <span class="mini-tag">Wireframing</span>
+                            <span class="mini-tag">Prototyping</span>
+                            <span class="mini-tag">Information Architecture</span>
+                            <span class="mini-tag">UX/UI Design</span>
+                            <span class="mini-tag">User Flow Design</span>
+                            <span class="mini-tag">HTML</span>
+                            <span class="mini-tag">CSS</span>
+                            <span class="mini-tag">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- Tools Box -->
+                    <div class="sub-box tools-box interactive">
+                        <div class="sub-box-header">
+                            <h3 class="tools-header">Tools</h3>
+                        </div>
+                        <ul class="tools-list-horizontal">
+                            <li class="tool-item">
+                                <img src="assets/Figma_Icon.jpg" alt="Figma" width="24" height="24" class="tool-icon">
+                                <span>Figma</span>
+                            </li>
+                            <li class="tool-item">
+                                <img src="assets/Canva_Icon.jpg" alt="Canva" width="24" height="24" class="tool-icon">
+                                <span>Canva</span>
+                            </li>
+                            <li class="tool-item">
+                                <img src="assets/JSCode_Icon.jpg" alt="VS Code" width="24" height="24" class="tool-icon">
+                                <span>VS Code</span>
+                            </li>
+                            <li class="tool-item">
+                                <img src="assets/Adobe_Photoshop_Icon.png" alt="Photoshop" width="24" height="24" class="tool-icon">
+                                <span>Photoshop</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Introduction Section -->
+                <div class="about-introduction-wrapper">
+                    <h3 class="about-intro-title">Introduction</h3>
+                    <div class="about-bios">
+                        <p class="about-bio">
+                            Hi, I'm Kavitha, a UX/UI Designer passionate about creating user-centered digital experiences that are both functional and visually appealing.
+                        </p>
+                        <p class="about-bio">
+                            For example, when users struggle with a complicated sign-up process, I analyze their pain points, simplify the user flow, and create intuitive designs that improve the overall experience. My goal is to design products that are easy to use, accessible, and impactful.
+                        </p>
+                        <p class="about-bio">
+                            I believe that successful design is about balancing user needs, business goals, and usability principles to create meaningful experiences that people love to use.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,102 +183,75 @@
     <section class="section-padding reveal" id="work">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Featured Projects</span>
-                <h2 class="section-title">Selected Case Studies</h2>
+                <h2 class="section-title selected-projects-title">Selected Project</h2>
             </div>
             
             <div class="work-grid">
                 <!-- Combined Case Study -->
-                <div class="work-card reveal interactive" data-project="whatsapp_redesign" style="grid-column: span 2; max-width: 900px; margin: 0 auto; width: 100%;">
-                    <div class="work-gallery-wrapper">
-                        <div class="work-gallery">
-                            <div class="gallery-phone"><img src="assets/WhatsApp_FirstPage.png" alt="WhatsApp First Page"></div>
-                            <div class="gallery-phone"><img src="assets/WhatsApp_Home_Page.png" alt="WhatsApp Home Page"></div>
-                            <div class="gallery-phone"><img src="assets/Chat_Page.png" alt="Chat Page"></div>
-                            <div class="gallery-phone"><img src="assets/Chat_Page_Options.png" alt="Chat Options"></div>
-                            <div class="gallery-phone"><img src="assets/Chat_Page_Options_MediaAutoDownload.png" alt="Media Auto-Download"></div>
-                            <div class="gallery-phone"><img src="assets/Media,Links,Docs_Page.png" alt="Media Links Docs Page"></div>
-                            <div class="gallery-phone"><img src="assets/Media,Links,Docs_Page_SortBy.png" alt="Media Links Docs Page Sort By"></div>
-                            <div class="gallery-phone"><img src="assets/Media,Links,Docs_Page_SortBySelect.png" alt="Media Links Docs Page Sort By Select"></div>
-                        </div>
-                        <div class="work-overlay">
-                            <span class="btn-primary">View Case Study</span>
-                        </div>
-                    </div>
+                <div class="work-card reveal interactive" style="grid-column: span 2; max-width: 900px; margin: 0 auto; width: 100%;">
                     <div class="work-info">
-                        <div>
-                            <div class="work-tags">
-                                <span class="work-tag">UX Redesign</span>
-                                <span class="work-tag">Interaction Design</span>
-                                <span class="work-tag">Product Optimization</span>
+                        <div class="work-content-group">
+                            <h3 class="work-title whatsapp-redesign-title">Whatsapp Redesign</h3>
+                            
+                            <div class="work-hero-image-wrapper" style="margin: 1.5rem 0 2.5rem 0; border-radius: var(--radius-md); overflow: hidden; width: 100%; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); transition: var(--transition-smooth);">
+                                <img src="assets/whatsapp_hero.jpg" alt="WhatsApp Redesign Mockup" style="width: 100%; height: auto; display: block; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
                             </div>
-                            <h3 class="work-title">WhatsApp Redesign: Smart Media Controls & Advanced Sorting</h3>
-                            <p class="work-desc">A detailed case study on optimizing the WhatsApp media experience. Explores granular thread-level auto-download settings alongside robust sorting and filtering mechanisms within the shared media view to minimize user storage strain and speed up file retrieval.</p>
+                            
+                            <div class="project-features-columns" style="display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                                <div class="project-feature-col">
+                                    <span class="project-feature-pill">Feature 1: Granular Media Auto-Downloads</span>
+                                    <a href="granular_media_downloads.html" class="work-link">View Case Study</a>
+                                </div>
+                                <div class="project-feature-col">
+                                    <span class="project-feature-pill">Feature 2: Smart Content Sorting</span>
+                                    <a href="smart_content_sorting.html" class="work-link">View Case Study</a>
+                                </div>
+                            </div>
                         </div>
-                        <span class="work-link">
-                            Explore Case Study 
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Toolkit Section -->
-    <section class="section-padding reveal" id="toolkit">
-        <div class="container">
-            <div class="section-header" style="text-align: center;">
-                <span class="section-tag">Expertise</span>
-                <h2 class="section-title">My Toolkit</h2>
-            </div>
-            <div class="skills-list" style="justify-content: center; gap: 1rem; max-width: 800px; margin: 0 auto;">
-                <span class="skill-tag" style="font-size: 1.1rem; padding: 0.75rem 1.75rem;">Figma</span>
-                <span class="skill-tag" style="font-size: 1.1rem; padding: 0.75rem 1.75rem;">Canva</span>
-                <span class="skill-tag" style="font-size: 1.1rem; padding: 0.75rem 1.75rem;">Prototyping</span>
-                <span class="skill-tag" style="font-size: 1.1rem; padding: 0.75rem 1.75rem;">HTML/CSS</span>
-                <span class="skill-tag" style="font-size: 1.1rem; padding: 0.75rem 1.75rem;">JavaScript</span>
-                <span class="skill-tag" style="font-size: 1.1rem; padding: 0.75rem 1.75rem;">User Flows</span>
-                <span class="skill-tag" style="font-size: 1.1rem; padding: 0.75rem 1.75rem;">Wireframing</span>
-                <span class="skill-tag" style="font-size: 1.1rem; padding: 0.75rem 1.75rem;">Webflow</span>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Services / Expertise Section -->
     <section class="section-padding reveal" id="services">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Core Expertise</span>
-                <h2 class="section-title">How I Solve Problems</h2>
-            </div>
-            
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v12"></path><path d="M6 12h12"></path></svg>
-                    </div>
-                    <h3 class="service-title">UI/UX Design</h3>
-                    <p class="service-desc">Creating visually engaging and intuitive layout structures that guide user behavior and elevate brand identity.</p>
+            <div class="services-box">
+                <div class="section-header">
+                    <span class="section-tag core-expertise-tag">Core Expertise</span>
+                    <h2 class="section-title">How I Solve Problems</h2>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v12"></path><path d="M6 12h12"></path></svg>
+                        </div>
+                        <h3 class="service-title">UX/UI Design</h3>
+                        <p class="service-desc">Creating visually engaging and intuitive layout structures that guide user behavior and elevate brand identity.</p>
                     </div>
-                    <h3 class="service-title">User Research</h3>
-                    <p class="service-desc">Employing persona building, surveys, and interactive usability tests to ground visual layouts in actual user requirements.</p>
-                </div>
 
-                <!-- Service 3 -->
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <!-- Service 2 -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="service-title">User Research</h3>
+                        <p class="service-desc">Employing persona building, surveys, and interactive usability tests to ground visual layouts in actual user requirements.</p>
                     </div>
-                    <h3 class="service-title">Design Systems</h3>
-                    <p class="service-desc">Formulating scaleable token structures and component libraries that bridge the gap between design drafts and active codebases.</p>
+
+                    <!-- Service 3 -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <h3 class="service-title">Design Systems</h3>
+                        <p class="service-desc">Formulating scaleable token structures and component libraries that bridge the gap between design drafts and active codebases.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -211,7 +264,7 @@
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <div>
-                        <span class="section-tag">Let's Connect</span>
+                        <span class="section-tag lets-connect-tag">Let's Connect</span>
                         <h2 class="contact-title">Have a project idea? Let's build it.</h2>
                     </div>
                     <div class="contact-details-list">
@@ -221,7 +274,16 @@
                             </div>
                             <div>
                                 <div class="contact-text-label">Email</div>
-                                <div class="contact-text-value">hello@kavithabharathi.design</div>
+                                <div class="contact-text-value">kavi16sekar@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <div>
+                                <div class="contact-text-label">Phone</div>
+                                <div class="contact-text-value">7395928683</div>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -249,7 +311,7 @@
                             <label for="message" class="form-label">Your Message</label>
                             <textarea id="message" class="form-textarea interactive" placeholder="Tell me about your project..." required></textarea>
                         </div>
-                        <button type="submit" class="btn-primary interactive">Send Message</button>
+                        <button type="submit" class="btn-primary interactive contact-submit-btn">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -268,35 +330,7 @@
         </div>
     </footer>
 
-    <!-- Case Study Detail Modal -->
-    <div class="modal" id="caseStudyModal" role="dialog" aria-modal="true">
-        <div class="modal-content">
-            <button class="modal-close interactive" id="modalCloseBtn" aria-label="Close modal">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Project Title</h2>
-                <div class="modal-tags" id="modalTags">
-                    <!-- Project tags -->
-                </div>
-            </div>
-            <img src="" alt="Project Image" class="modal-image" id="modalImg">
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3 class="modal-section-title">Overview</h3>
-                    <p class="modal-section-desc" id="modalOverview">Project overview text goes here.</p>
-                </div>
-                <div class="modal-section">
-                    <h3 class="modal-section-title">The Challenge</h3>
-                    <p class="modal-section-desc" id="modalChallenge">Challenge details go here.</p>
-                </div>
-                <div class="modal-section">
-                    <h3 class="modal-section-title">My Approach & Solution</h3>
-                    <p class="modal-section-desc" id="modalSolution">Solution details go here.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <script src="script.js"></script>
 </body>

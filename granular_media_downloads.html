@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granular Media Auto-Downloads Case Study — UX/UI Portfolio</title>
+    <meta name="description" content="Detailed design case study of Granular Media Auto-Downloads in WhatsApp.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .case-study-hero {
+            padding: 8rem 0 2rem 0;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .case-grid {
+            display: block;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .case-content {
+            padding: 6rem 0;
+        }
+        .case-section {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2.5rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+        .case-section:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+        .case-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .case-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .case-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .case-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .case-section li {
+            margin-bottom: 0.5rem;
+        }
+        .gallery-container {
+            margin-top: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar scrolled case-study-nav" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo interactive" style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition: transform 0.3s ease;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                WhatsApp Redesign<span class="logo-dot"></span>
+            </a>
+            <div class="nav-right" style="display: flex;">
+                <a href="#overview" class="nav-item-box interactive">Overview</a>
+                <a href="#analysis" class="nav-item-box interactive">Analysis</a>
+                <a href="#insights" class="nav-item-box interactive">Key Insights</a>
+                <a href="#empathy" class="nav-item-box interactive">Empathy Mapping</a>
+                <a href="#solution" class="nav-item-box interactive">Design Solution</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <header class="case-study-hero">
+        <div class="container">
+            <span class="modal-feature-tag">Feature 1</span>
+            <h1 class="modal-feature-title" style="margin-bottom: 0.5rem;">Granular Media Auto-Downloads</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="case-content">
+        <div class="container">
+            <div class="case-grid">
+                <div class="main-column">
+                    <!-- Overview -->
+                    <section class="case-section" id="overview">
+                        <h2>Overview</h2>
+                        <p>
+                            WhatsApp users receive a large amount of media content every day through personal chats, groups, and work conversations. The existing auto-download settings provide limited control, applying the same preferences across all conversations.
+                        </p>
+                        <p>
+                            This project focuses on redesigning the media auto-download experience by introducing granular, per-chat media controls, allowing users to customize download preferences based on their individual needs.
+                        </p>
+                        <p>
+                            The redesigned feature enables users to decide what media gets downloaded automatically (photos, videos, audio, and documents) for specific chats, helping improve storage management, reduce unwanted downloads, and create a more personalized messaging experience.
+                        </p>
+                    </section>
+
+                    <!-- Problem Statement -->
+                    <section class="case-section" id="problem">
+                        <h2>Problem Statement</h2>
+                        <p>
+                            WhatsApp users often receive excessive media content from multiple chats and groups, resulting in:
+                        </p>
+                        <ul>
+                            <li>Unnecessary storage consumption due to unwanted downloads</li>
+                            <li>Difficulty managing media from different conversations</li>
+                            <li>Important files getting lost among irrelevant content</li>
+                            <li>Lack of control over which chats should automatically download media</li>
+                            <li>Time spent manually deleting unwanted photos and videos</li>
+                        </ul>
+                        <p>
+                            <strong>The current auto-download settings do not provide enough flexibility for users with different communication needs.</strong>
+                        </p>
+                    </section>
+
+                    <!-- Research Goal -->
+                    <section class="case-section" id="research">
+                        <h2>Research Goal</h2>
+                        <p>
+                            To understand user behaviors and challenges around media downloads and design a flexible solution that improves control, discoverability, and storage efficiency.
+                        </p>
+                    </section>
+
+                    <!-- The Challenge -->
+                    <section class="case-section" id="challenge">
+                        <h2>The Challenge</h2>
+                        <p>
+                            Designing a flexible media download experience that gives users more control over photos, videos, audio, and documents while keeping the settings simple and easy to use.
+                        </p>
+                    </section>
+
+                    <!-- Analysis -->
+                    <section class="case-section" id="analysis">
+                        <h2>Analysis</h2>
+                        <p>
+                            To understand how user behaviors drive downloading habits, we conducted a comparative persona study highlighting differences in usage patterns and pain points between high-volume groups and study-focused students.
+                        </p>
+                        <div class="analysis-table-container">
+                            <table class="analysis-table">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Haritha (Age 32)<br><span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">Petrol Pump Service Provider</span></th>
+                                        <th>Rajeshwari (Age 18)<br><span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">B.Sc. Computer Science Student</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Profile</strong></td>
+                                        <td>Petrol Pump Service Provider</td>
+                                        <td>B.Sc. Computer Science Student</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Usage Behavior</strong></td>
+                                        <td>
+                                            <ul>
+                                                <li>Receives 20–30 images and 5–10 videos daily from family and office groups.</li>
+                                                <li>Keeps photo auto-download ON and video auto-download OFF to save storage.</li>
+                                                <li>Frequently manages storage due to unwanted media accumulation.</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Receives moderate media, mainly images and study-related documents.</li>
+                                                <li>Keeps auto-download disabled for all media types.</li>
+                                                <li>Manually downloads important files when required.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pain Points</strong></td>
+                                        <td>
+                                            <ul>
+                                                <li>Group videos and forwarded content consume storage quickly.</li>
+                                                <li>Important office documents may get missed among multiple messages.</li>
+                                                <li>Media settings are difficult to discover and manage.</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Irrelevant media creates distractions.</li>
+                                                <li>Sometimes forgets to download important documents.</li>
+                                                <li>Finding required files in large conversations takes time.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Needs & Expectations</strong></td>
+                                        <td>
+                                            <ul>
+                                                <li>Personalized media download controls for specific chats/groups.</li>
+                                                <li>Better visibility of storage-consuming content.</li>
+                                                <li>Alerts or suggestions when a chat generates excessive media.</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Priority-based downloads for important chats/groups.</li>
+                                                <li>Smart reminders for pending downloads.</li>
+                                                <li>Better organization of shared media and documents.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Key Insights -->
+                    <section class="case-section" id="insights">
+                        <h2>Key Insights</h2>
+                        <div class="insights-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                            <!-- Card 1 -->
+                            <div class="insight-card" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">01</span>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; line-height: 1.3;">Control at the relationship level</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Settings live inside the chat, not global preferences — so a noisy group and a close contact can have entirely different rules.</p>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; background-color: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); color: var(--text-muted); width: fit-content; margin-top: auto;">Information architecture</span>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="insight-card" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">02</span>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; line-height: 1.3;">Four independent toggles</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Photos, Videos, Audio, and Documents are decoupled — allowing photos on mobile data while blocking videos is a zero-compromise choice.</p>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; background-color: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); color: var(--text-muted); width: fit-content; margin-top: auto;">UX decision</span>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="insight-card" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">03</span>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; line-height: 1.3;">Override, not replace</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Per-chat settings always win over the global default. Users keep their baseline intact while fine-tuning specific conversations.</p>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; background-color: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); color: var(--text-muted); width: fit-content; margin-top: auto;">System logic</span>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="insight-card" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">04</span>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; line-height: 1.3;">Lightweight interaction</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">A popup with checkboxes and a Save/Cancel pair keeps the interaction under three taps — no navigation away from the chat.</p>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; background-color: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); color: var(--text-muted); width: fit-content; margin-top: auto;">UX decision</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Empathy Mapping -->
+                    <section class="case-section" id="empathy">
+                        <h2>Empathy Mapping</h2>
+                        <p style="margin-bottom: 2rem; font-style: italic; font-weight: 500;">
+                            "I don't want every video from this group clogging my storage, but I still want photos from my family chat to download automatically"
+                        </p>
+                        
+                        <div class="empathy-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem;">
+                            <!-- Says -->
+                            <div class="empathy-card hero-ux-info-item" style="background: linear-gradient(135deg, #FFFFFF 65%, #DBEAFE 100%) !important; border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 12px; padding: 2rem 1.75rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04); transition: var(--transition-bounce);">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #000000 !important; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; background: none !important; -webkit-text-fill-color: initial !important; -webkit-background-clip: initial !important; filter: none;"><span style="color: var(--accent) !important; font-weight: 800;">01/</span> SAYS</h3>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #000000 !important; font-size: 0.92rem; line-height: 1.7; list-style-type: disc;">
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Haritha, Petrol pump service provider</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Everyday in family and office groups</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Auto - download option for specific contacts</li>
+                                    <li style="margin-bottom: 0; color: #000000 !important;">Per chat auto - download option</li>
+                                </ul>
+                            </div>
+
+                            <!-- Thinks -->
+                            <div class="empathy-card hero-ux-info-item" style="background: linear-gradient(135deg, #FFFFFF 65%, #DBEAFE 100%) !important; border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 12px; padding: 2rem 1.75rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04); transition: var(--transition-bounce);">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #000000 !important; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; background: none !important; -webkit-text-fill-color: initial !important; -webkit-background-clip: initial !important; filter: none;"><span style="color: var(--accent) !important; font-weight: 800;">02/</span> THINKS</h3>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #000000 !important; font-size: 0.92rem; line-height: 1.7; list-style-type: disc;">
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Family and office groups</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Yes, office bills</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">No, Had to search for an option.</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Yes, Especially for office groups</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Yes, But it doesn't solve the group problem</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Yes, It makes it easy</li>
+                                    <li style="margin-bottom: 0; color: #000000 !important;">Very rare</li>
+                                </ul>
+                            </div>
+
+                            <!-- Feels -->
+                            <div class="empathy-card hero-ux-info-item" style="background: linear-gradient(135deg, #FFFFFF 65%, #DBEAFE 100%) !important; border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 12px; padding: 2rem 1.75rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04); transition: var(--transition-bounce);">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #000000 !important; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; background: none !important; -webkit-text-fill-color: initial !important; -webkit-background-clip: initial !important; filter: none;"><span style="color: var(--accent) !important; font-weight: 800;">03/</span> FEELS</h3>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #000000 !important; font-size: 0.92rem; line-height: 1.7; list-style-type: disc;">
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Yes, storage gets full</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Yes</li>
+                                    <li style="margin-bottom: 0; color: #000000 !important;">Very important</li>
+                                </ul>
+                            </div>
+
+                            <!-- Does -->
+                            <div class="empathy-card hero-ux-info-item" style="background: linear-gradient(135deg, #FFFFFF 65%, #DBEAFE 100%) !important; border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 12px; padding: 2rem 1.75rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04); transition: var(--transition-bounce);">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #000000 !important; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; background: none !important; -webkit-text-fill-color: initial !important; -webkit-background-clip: initial !important; filter: none;"><span style="color: var(--accent) !important; font-weight: 800;">04/</span> DOES</h3>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #000000 !important; font-size: 0.92rem; line-height: 1.7; list-style-type: disc;">
+                                    <li style="margin-bottom: 0; color: #000000 !important;">Auto - download on for photos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- User Persona -->
+                    <section class="case-section" id="persona">
+                        <h2>User Persona</h2>
+                        <div class="persona-card" style="margin-top: 2rem; background: linear-gradient(135deg, #ffffff 0%, var(--bg-secondary) 100%); border: 1.5px solid rgba(99, 102, 241, 0.2); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: 0 15px 35px rgba(99, 102, 241, 0.04); display: flex; flex-direction: column; gap: 2rem;">
+                            <!-- Header Grid -->
+                            <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #ffffff; font-weight: 800; box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);">
+                                    H
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                                    <h3 style="font-size: 1.75rem; font-weight: 800; color: #000000 !important; margin: 0; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Haritha</h3>
+                                    <span style="font-size: 1.05rem; font-weight: 700; color: var(--text-secondary);">32 | Female | Petrol Bunk Service Provider | Chennai</span>
+                                </div>
+                            </div>
+
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 0;">
+
+                            <!-- Content Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                                <!-- Left Column: Background, Scenario & Quote -->
+                                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                    <!-- Background -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(99, 102, 241, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Background</h4>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; font-weight: 600;">
+                                            Based in Chennai, Haritha runs daily business operations at a petrol pump station, handling logbooks, customer logs, and receipts.
+                                        </p>
+                                    </div>
+
+                                    <!-- Scenario -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(99, 102, 241, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Scenario</h4>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; font-weight: 600;">
+                                            During busy work hours, multiple groups send images and videos. She wants work documents to be available while avoiding unnecessary media downloads.
+                                        </p>
+                                    </div>
+
+                                    <!-- User Quote -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(236, 72, 153, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">User Quote</h4>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; font-weight: 600; font-style: italic;">
+                                            "I don't want every video from this group clogging my storage, but I still want photos from my family chat to download automatically."
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Right Column: Goals & Pain Points -->
+                                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                    <!-- Goals -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Goals</h4>
+                                        <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7; color: #334155; font-weight: 600; list-style-type: disc;">
+                                            <li style="margin-bottom: 0.5rem; color: #334155 !important;">Control what media gets downloaded</li>
+                                            <li style="margin-bottom: 0.5rem; color: #334155 !important;">Quickly access important work documents</li>
+                                            <li style="margin-bottom: 0; color: #334155 !important;">Reduce time spent managing storage</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Pain Points -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Pain Points</h4>
+                                        <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7; color: #334155; font-weight: 600; list-style-type: disc;">
+                                            <li style="margin-bottom: 0.5rem; color: #334155 !important;">Automatic downloads consume storage</li>
+                                            <li style="margin-bottom: 0.5rem; color: #334155 !important;">Important files get mixed with unwanted media</li>
+                                            <li style="margin-bottom: 0; color: #334155 !important;">No chat-specific download preferences</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Design Implication -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(139, 92, 246, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Design Implication</h4>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; font-weight: 600;">
+                                            Provide per-chat media download controls with separate preferences for photos, videos, audio, and documents.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Competitor Analysis -->
+                    <section class="case-section" id="competitor-analysis">
+                        <h2>Competitor Analysis</h2>
+                        <p>
+                            To identify product opportunities, this analysis evaluates the media auto-download capabilities, strengths, and constraints of key messaging competitors in the industry.
+                        </p>
+                        <div class="analysis-table-container">
+                            <table class="analysis-table">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: left !important;">Competitor</th>
+                                        <th style="text-align: left !important;">Media Download Controls</th>
+                                        <th style="text-align: left !important;">Strengths</th>
+                                        <th style="text-align: left !important;">Limitations</th>
+                                        <th style="text-align: left !important;">Design Opportunity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Telegram</strong></td>
+                                        <td>Provides automatic media download controls based on mobile data, Wi-Fi, roaming, and chat type. Users can customize media limits.</td>
+                                        <td>Advanced customization and better control over media downloads.</td>
+                                        <td>Settings can feel complex for new users due to multiple options.</td>
+                                        <td>Create simpler <strong>per-chat media controls</strong> with clear recommendations.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Signal</strong></td>
+                                        <td>Allows users to control automatic downloads for different media types like images, videos, and documents.</td>
+                                        <td>Strong privacy-focused experience with simple settings.</td>
+                                        <td>Limited personalization based on individual chats.</td>
+                                        <td>Introduce chat-specific download preferences while maintaining simplicity.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Messenger</strong></td>
+                                        <td>Provides automatic media handling with storage-related options.</td>
+                                        <td>Easy-to-understand interface and familiar interaction patterns.</td>
+                                        <td>Limited control over specific media categories and chats.</td>
+                                        <td>Provide users with more granular control over content types.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>WhatsApp (Current)</strong></td>
+                                        <td>Allows users to enable/disable auto-download based on network type (Mobile Data, Wi-Fi, Roaming).</td>
+                                        <td>Simple and familiar experience.</td>
+                                        <td>Same settings apply broadly; lacks individual chat/group customization.</td>
+                                        <td>Add <strong>personalized per-chat media download settings</strong>.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Key Opportunity Callout -->
+                        <div class="opportunity-callout" style="margin-top: 2.25rem; background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%); border-left: 4px solid var(--accent); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 1.5rem 2rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                            <h4 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none;">Key Opportunity Identified</h4>
+                            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin: 0; font-weight: 600;">
+                                Existing platforms provide basic media download controls, but users still need a simpler way to customize downloads based on individual chats, content type, and personal priorities.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Design Solution -->
+                    <section class="case-section" id="solution">
+                        <h2>Design Solution</h2>
+                        <p>
+                            Introduced a 'Media auto-download' toggle option in the chat's top-right options dropdown. Clicking this opens a clear popup dialog checklist (Photos, Audio, Videos, Documents) allowing immediate custom downloading preferences at the thread level.
+                        </p>
+                        
+                        <div class="before-after-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; justify-content: center;">
+                            <!-- Before Box -->
+                            <div class="comparison-box" style="flex: 1; min-width: 250px; max-width: 320px; background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; box-shadow: var(--shadow-sm);">
+                                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Before: Old screen</h4>
+                                <div style="border-radius: 28px; overflow: hidden; border: 8px solid #1f2937; background: #000; aspect-ratio: 9/19.5; width: 100%; max-width: 240px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), inset 0 0 4px rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center;">
+                                    <img src="assets/Chat_Page_Options_OldPage.png" alt="Before: Old Screen" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                            <!-- After Box -->
+                            <div class="comparison-box" style="flex: 1; min-width: 250px; max-width: 320px; background-color: var(--bg-primary); border: 1px solid rgba(37, 99, 235, 0.15); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; box-shadow: var(--shadow-sm);">
+                                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; margin-bottom: 1.25rem; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 0.05em; filter: none;">After: Redesigned Screen</h4>
+                                <div style="border-radius: 28px; overflow: hidden; border: 8px solid #1f2937; background: #000; aspect-ratio: 9/19.5; width: 100%; max-width: 240px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), inset 0 0 4px rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center;">
+                                    <img src="assets/Chat_Page_Options.png" alt="After: Redesigned Screen" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Information architecture -->
+                    <section class="case-section" id="ia">
+                        <h2>Information architecture</h2>
+                        <p>
+                            The structural blueprint maps the entry points and controls for media downloads, showing how thread-level rules seamlessly integrate with global defaults without creating navigation overhead.
+                        </p>
+                        <div class="ia-image-wrapper" style="margin-top: 2rem; border-radius: var(--radius-md); overflow: hidden; width: 100%; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); background-color: #ffffff; padding: 2.5rem 1.5rem; display: flex; justify-content: center;">
+                            <img src="assets/whatsapp_media_download_IA.svg" alt="Information Architecture - Granular Media Auto-Download" style="max-width: 100%; height: auto; display: block;">
+                        </div>
+                    </section>
+
+                    <!-- User Flow -->
+                    <!-- User Flow -->
+                    <section class="case-section" id="userflow">
+                        <h2>User Flow</h2>
+                        <p style="margin-bottom: 2rem;">
+                            The sequential steps mapping how a user accesses specific chat options, opens the auto-download settings modal, selects preferences, and saves the customized rules without any step numbers.
+                        </p>
+                        
+                        <div class="user-flowchart" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: 2rem;">
+                            <!-- Gradient Definition -->
+                            <svg width="0" height="0" style="position: absolute;">
+                              <defs>
+                                <linearGradient id="arrowGradient" x1="0" y1="0" x2="0" y2="1">
+                                  <stop offset="0%" stop-color="#6366f1" />
+                                  <stop offset="100%" stop-color="#ec4899" />
+                                </linearGradient>
+                              </defs>
+                            </svg>
+                            <!-- Node 1 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Launch WhatsApp</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">App opens to chats list</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 2 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Chats Home Screen</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">All conversations listed</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 3 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Select a Chat</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Tap any conversation</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Split Row: Individual vs Group -->
+                            <div style="display: flex; gap: 1rem; width: 100%; max-width: 450px; justify-content: center;">
+                                <div class="flow-node flow-node-accent" style="flex: 1; padding: 0.85rem 1rem; text-align: center;">
+                                    <strong style="display: block; font-size: 0.9rem;">Individual Chat</strong>
+                                    <span style="font-size: 0.75rem; color: var(--text-secondary);">1:1 conversation opens</span>
+                                </div>
+                                <div class="flow-node flow-node-success" style="flex: 1; padding: 0.85rem 1rem; text-align: center;">
+                                    <strong style="display: block; font-size: 0.9rem;">Group Chat</strong>
+                                    <span style="font-size: 0.75rem; color: var(--text-secondary);">Group conversation opens</span>
+                                </div>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 4 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Chat Screen</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Messages visible in thread</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 5 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Tap Options Menu (⋮)</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Top-right of chat header</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 6 -->
+                            <div class="flow-node flow-node-accent" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Select 'Media auto-download'</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Tapped from options dropdown list</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 7 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Media Auto-Download Popup</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Modal overlay checklist appears</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 8 -->
+                            <div class="flow-node" style="padding: 1rem 1.5rem; text-align: left; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem; text-align: center; margin-bottom: 0.75rem;">Set Media Preferences</strong>
+                                <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.8rem; color: var(--text-secondary);">
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" checked disabled style="accent-color: var(--accent);"> [x] Photos</div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" disabled> [ ] Videos</div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" disabled> [ ] Audio</div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" disabled> [ ] Documents</div>
+                                </div>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Split Row: Save vs Cancel -->
+                            <div style="display: flex; gap: 1rem; width: 100%; max-width: 450px; justify-content: center;">
+                                <!-- Save Branch -->
+                                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                                    <div class="flow-node flow-node-success" style="width: 100%; padding: 0.85rem 1rem; text-align: center;">
+                                        <strong style="display: block; font-size: 0.9rem;">Save Settings</strong>
+                                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Tap Save action button</span>
+                                    </div>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                                    <div class="flow-node flow-node-success" style="width: 100%; padding: 0.85rem 1rem; text-align: center;">
+                                        <strong style="display: block; font-size: 0.9rem;">Override Active</strong>
+                                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Selected types download</span>
+                                    </div>
+                                </div>
+                                <!-- Cancel Branch -->
+                                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                                    <div class="flow-node flow-node-danger" style="width: 100%; padding: 0.85rem 1rem; text-align: center;">
+                                        <strong style="display: block; font-size: 0.9rem;">Cancel Changes</strong>
+                                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Tap Cancel action button</span>
+                                    </div>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                                    <div class="flow-node flow-node-danger" style="width: 100%; padding: 0.85rem 1rem; text-align: center;">
+                                        <strong style="display: block; font-size: 0.9rem;">Popup Dismissed</strong>
+                                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Returns to chat screen</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- High Fidelity UI Design -->
+                    <section class="case-section" id="hifi">
+                        <h2>High Fidelity UI Design</h2>
+                        <p style="margin-bottom: 2rem;">
+                            The high-fidelity mockups show the user journey from opening the application through to customizing individual chat auto-download preferences. Each screen is designed to integrate seamlessly into WhatsApp's clean interface style, ensuring controls are easy to find and use.
+                        </p>
+                        <div class="gallery-container">
+                            <div class="whatsapp-solution-gallery" style="display: flex; flex-wrap: wrap; gap: 1.5rem 1rem; justify-content: center; align-items: flex-start;">
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Splash Screen</span>
+                                    <div class="gallery-phone"><img src="assets/WhatsApp_FirstPage.png" alt="WhatsApp Splash Page"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Launches messaging application</span>
+                                </div>
+                                
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Home Screen</span>
+                                    <div class="gallery-phone"><img src="assets/WhatsApp_Home_Page.png" alt="WhatsApp Home Page"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Lists active chat threads</span>
+                                </div>
+
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Chat Screen</span>
+                                    <div class="gallery-phone"><img src="assets/Chat_Page.png" alt="Chat Screen"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Opens conversation window</span>
+                                </div>
+
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Options Menu</span>
+                                    <div class="gallery-phone"><img src="assets/Chat_Page_Options.png" alt="Options Menu"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Accesses thread settings</span>
+                                </div>
+
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Settings Popup</span>
+                                    <div class="gallery-phone"><img src="assets/Chat_Page_Options_MediaAutoDownload.png" alt="Settings Popup"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Customizes media preferences</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Impact & Learnings -->
+                    <section class="case-section" id="impact-learnings" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; border: none; background: transparent; padding: 0; box-shadow: none; margin-bottom: 3rem;">
+                        <!-- Impact Box -->
+                        <div class="impact-box" style="background: linear-gradient(135deg, #ffffff 65%, rgba(16, 185, 129, 0.05) 100%); border: 1.5px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 2.5rem 2rem; box-shadow: 0 15px 35px rgba(16, 185, 129, 0.08); transition: var(--transition-smooth); display: flex; flex-direction: column; gap: 1.5rem;">
+                            <h2 style="font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #047857 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; margin-bottom: 0; padding-bottom: 0;">Impact</h2>
+                            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.15); color: #047857; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Enabled users to have more control over media downloads by allowing personalized settings for individual chats and groups.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.15); color: #047857; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Reduced unnecessary media downloads, helping users manage storage efficiently.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.15); color: #047857; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Improved accessibility to important files by ensuring users can prioritize content based on their needs.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.15); color: #047857; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Created a more personalized experience by adapting media management to different user behaviors and contexts.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Learnings Box -->
+                        <div class="learnings-box" style="background: linear-gradient(135deg, #ffffff 65%, rgba(99, 102, 241, 0.05) 100%); border: 1.5px solid rgba(99, 102, 241, 0.25); border-radius: var(--radius-md); padding: 2.5rem 2rem; box-shadow: 0 15px 35px rgba(99, 102, 241, 0.08); transition: var(--transition-smooth); display: flex; flex-direction: column; gap: 1.5rem;">
+                            <h2 style="font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; margin-bottom: 0; padding-bottom: 0;">Learnings</h2>
+                            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.15); color: #4f46e5; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">★</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Users prefer flexible controls over one-size-fits-all settings when managing personal content.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.15); color: #4f46e5; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">★</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Small improvements in discoverability and customization can significantly improve user confidence and satisfaction.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.15); color: #4f46e5; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">★</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Understanding different user contexts (personal, professional, and group chats) is essential when designing productivity features.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.15); color: #4f46e5; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">★</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Smart automation should support user decisions while keeping the experience simple and intuitive.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div>© 2026 Kavitha Bharathi G. All rights reserved.</div>
+            <div class="footer-socials">
+                <a href="#" class="footer-social-link interactive">LinkedIn</a>
+                <a href="#" class="footer-social-link interactive">Dribbble</a>
+                <a href="#" class="footer-social-link interactive">Behance</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

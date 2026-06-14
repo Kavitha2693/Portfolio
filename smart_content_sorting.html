@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Content Sorting Case Study — UX/UI Portfolio</title>
+    <meta name="description" content="Detailed design case study of Advanced Shared Media Sorting in WhatsApp.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .case-study-hero {
+            padding: 8rem 0 4rem 0;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .case-study-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .meta-item h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .meta-item p {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .case-content {
+            padding: 6rem 0;
+        }
+        .case-grid {
+            display: block;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media (max-width: 1024px) {
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .case-section {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2.5rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+        .case-section:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+        .case-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .case-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .case-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .case-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .case-section li {
+            margin-bottom: 0.5rem;
+        }
+        .gallery-container {
+            margin-top: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
+        }
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            transition: var(--transition-bounce);
+        }
+        .back-nav:hover {
+            transform: translateX(-4px);
+        }
+        .logo:hover svg {
+            transform: translateX(-4px);
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar scrolled case-study-nav" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo interactive" style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition: transform 0.3s ease;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                WhatsApp Redesign<span class="logo-dot"></span>
+            </a>
+            <div class="nav-right" style="display: flex;">
+                <a href="#overview" class="nav-item-box interactive">Overview</a>
+                <a href="#challenge" class="nav-item-box interactive">Analysis</a>
+                <a href="#insights" class="nav-item-box interactive">Key Insights</a>
+                <a href="#empathy" class="nav-item-box interactive">Empathy Mapping</a>
+                <a href="#solution" class="nav-item-box interactive">Design Solution</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <header class="case-study-hero" style="padding: 8rem 0 2rem 0;">
+        <div class="container">
+            <span class="modal-feature-tag">Feature 2</span>
+            <h1 class="modal-feature-title" style="margin-bottom: 0.5rem;">Smart Content Sorting</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="case-content">
+        <div class="container">
+            <div class="case-grid">
+                <div class="main-column">
+                    <!-- Overview -->
+                    <section class="case-section" id="overview">
+                        <h2>Overview</h2>
+                        <p>
+                            WhatsApp users share and receive a large amount of media, links, and documents across personal chats, groups, and professional conversations. As conversations grow over time, finding specific content becomes challenging due to limited organization and sorting capabilities.
+                        </p>
+                        <p>
+                            This project focuses on redesigning the Media, Links & Docs management experience by introducing Smart Content Sorting, allowing users to quickly organize and discover shared content based on different sorting preferences such as name, date, and file size.
+                        </p>
+                        <p>
+                            The redesigned feature helps users reduce search effort, improve content discoverability, and efficiently manage important files shared within conversations.
+                        </p>
+                    </section>
+
+                    <!-- Problem Statement -->
+                    <section class="case-section" id="problem">
+                        <h2>Problem Statement</h2>
+                        <p>
+                            Users often struggle to find specific media, links, and documents shared in WhatsApp conversations due to:
+                        </p>
+                        <ul>
+                            <li>Large volumes of accumulated media content</li>
+                            <li>Difficulty locating important files shared months earlier</li>
+                            <li>No flexible way to organize content based on user preferences</li>
+                            <li>Time-consuming manual scrolling through galleries and chat history</li>
+                            <li>Important documents getting buried among frequently shared media</li>
+                        </ul>
+                        <p>
+                            <strong>The existing media management experience lacks efficient sorting options, making content discovery slower and frustrating for users.</strong>
+                        </p>
+                    </section>
+
+                    <!-- Research Goal -->
+                    <section class="case-section" id="research">
+                        <h2>Research Goal</h2>
+                        <p>
+                            The goal of this research was to understand how users search, manage, and retrieve shared content in WhatsApp and identify opportunities to improve content organization.
+                        </p>
+                    </section>
+
+                    <!-- The Challenge -->
+                    <section class="case-section" id="challenge">
+                        <h2>The Challenge</h2>
+                        <p>
+                            Improving content discovery by helping users quickly organize and find media, links, and documents without manually searching through long conversations.
+                        </p>
+                    </section>
+
+                    <!-- Analysis -->
+                    <section class="case-section" id="analysis">
+                        <h2>Analysis</h2>
+                        <p>
+                            To understand the different ways users interact with shared files, we analyzed usage behaviors across distinct professional and academic personas to define optimal sorting criteria.
+                        </p>
+                        <div class="analysis-table-container">
+                            <table class="analysis-table">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Arjun (Age 21)<br><span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">B.E. Electronics & Communication Student</span></th>
+                                        <th>Dinesh (Age 28)<br><span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">Junior Software Developer</span></th>
+                                        <th>Meenakshi (Age 35)<br><span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">Chartered Accountant</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Usage Frequency</strong></td>
+                                        <td>Daily — study PDFs and project docs</td>
+                                        <td>Few times a week — GitHub links, design files</td>
+                                        <td>Multiple times daily — financial documents</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Content Sought</strong></td>
+                                        <td>Documents and links from professors</td>
+                                        <td>Links — Figma, Jira, deployment URLs, APKs</td>
+                                        <td>PDFs, ITR docs, Excel files from clients</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Findability Challenge</strong></td>
+                                        <td>Hard — have to scroll a lot</td>
+                                        <td>Links look identical — no preview or label</td>
+                                        <td>Nightmare — 30-40 docs per client monthly</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Missed Files Experience</strong></td>
+                                        <td>Yes, missed exam timetable PDF</td>
+                                        <td>Yes, lost design link during sprint standup</td>
+                                        <td>4-5 times a week during filing season</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Sort Criteria Preference</strong></td>
+                                        <td>File type, then by sender</td>
+                                        <td>Links: sort by domain;<br>Files: sort by type</td>
+                                        <td>Date (monthly view), then sender name</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Scope Preference</strong></td>
+                                        <td>Within specific group chats</td>
+                                        <td>Within specific project group chats</td>
+                                        <td>Both — per chat and across all chats</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Impact of Current Experience</strong></td>
+                                        <td>Wastes time, feels like basic missing feature</td>
+                                        <td>Slows workflow, links shared twice creating noise</td>
+                                        <td>Causes missed deadlines, moved clients to email</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ideal Screen Expectation</strong></td>
+                                        <td>Sort by type, filter by date, pin files</td>
+                                        <td>Sort by domain, show page title, filter by extension</td>
+                                        <td>Sort by date, filter type, show file size</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Key Insights -->
+                    <section class="case-section" id="insights">
+                        <h2>Key Insights</h2>
+                        <div class="insights-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                            <!-- Card 1 -->
+                            <div class="insight-card" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">01</span>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; line-height: 1.3;">Tab-scoped sorting</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Media, Docs, and Links each hold their own sort state independently — sorting documents never disturbs the media grid view.</p>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; background-color: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); color: var(--text-muted); width: fit-content; margin-top: auto;">Information architecture</span>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="insight-card" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">02</span>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; line-height: 1.3;">Three dimensions, six options</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Name, Date, and Size — each with ascending and descending — map cleanly to real use cases: hunting a filename, finding recent shares, freeing storage.</p>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; background-color: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); color: var(--text-muted); width: fit-content; margin-top: auto;">UX decision</span>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="insight-card" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">03</span>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; line-height: 1.3;">Instant, no confirmation</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">The list reorders the moment a sort option is tapped. No Save button — low-stakes, reversible actions should never ask for confirmation.</p>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; background-color: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); color: var(--text-muted); width: fit-content; margin-top: auto;">UX decision</span>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="insight-card" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent);">04</span>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; line-height: 1.3;">Session-level preference</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Sort persists while the tab is open but resets on exit — treating it as a browsing tool rather than a sticky setting keeps defaults clean.</p>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; background-color: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); color: var(--text-muted); width: fit-content; margin-top: auto;">System logic</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Empathy Mapping -->
+                    <section class="case-section" id="empathy">
+                        <h2>Empathy Mapping</h2>
+                        <p style="margin-bottom: 2rem; font-style: italic; font-weight: 500;">
+                            "I remember sharing that document last month but scrolling through everything to find it is exhausting — I just want to sort by date and get it done."
+                        </p>
+                        
+                        <div class="empathy-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem;">
+                            <!-- Says -->
+                            <div class="empathy-card hero-ux-info-item" style="background: linear-gradient(135deg, #FFFFFF 65%, #DBEAFE 100%) !important; border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 12px; padding: 2rem 1.75rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04); transition: var(--transition-bounce);">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #000000 !important; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; background: none !important; -webkit-text-fill-color: initial !important; -webkit-background-clip: initial !important; filter: none;"><span style="color: var(--accent) !important; font-weight: 800;">01/</span> SAYS</h3>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #000000 !important; font-size: 0.92rem; line-height: 1.7; list-style-type: disc;">
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Arjun, 21 — B.E. ECE Student</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Daily — study PDFs and project docs</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Sort by type, filter by date, pin files</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Sort-by-type button at the top</li>
+                                    <li style="margin-bottom: 0; color: #000000 !important;">Yes, combined search and sort</li>
+                                </ul>
+                            </div>
+
+                            <!-- Thinks -->
+                            <div class="empathy-card hero-ux-info-item" style="background: linear-gradient(135deg, #FFFFFF 65%, #DBEAFE 100%) !important; border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 12px; padding: 2rem 1.75rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04); transition: var(--transition-bounce);">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #000000 !important; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; background: none !important; -webkit-text-fill-color: initial !important; -webkit-background-clip: initial !important; filter: none;"><span style="color: var(--accent) !important; font-weight: 800;">02/</span> THINKS</h3>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #000000 !important; font-size: 0.92rem; line-height: 1.7; list-style-type: disc;">
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Documents and links from professors</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">File type first, then by sender</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Within specific group chats</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Search bar not useful without exact name</li>
+                                    <li style="margin-bottom: 0; color: #000000 !important;">Yes, filter by last month would help</li>
+                                </ul>
+                            </div>
+
+                            <!-- Feels -->
+                            <div class="empathy-card hero-ux-info-item" style="background: linear-gradient(135deg, #FFFFFF 65%, #DBEAFE 100%) !important; border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 12px; padding: 2rem 1.75rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04); transition: var(--transition-bounce);">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #000000 !important; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; background: none !important; -webkit-text-fill-color: initial !important; -webkit-background-clip: initial !important; filter: none;"><span style="color: var(--accent) !important; font-weight: 800;">03/</span> FEELS</h3>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #000000 !important; font-size: 0.92rem; line-height: 1.7; list-style-type: disc;">
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Hard — have to scroll a lot</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Yes, missed exam timetable PDF</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Wastes time, feels like basic missing feature</li>
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Very important for academic use</li>
+                                    <li style="margin-bottom: 0; color: #000000 !important;">2/5 — needs a complete rethink</li>
+                                </ul>
+                            </div>
+
+                            <!-- Does -->
+                            <div class="empathy-card hero-ux-info-item" style="background: linear-gradient(135deg, #FFFFFF 65%, #DBEAFE 100%) !important; border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 12px; padding: 2rem 1.75rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04); transition: var(--transition-bounce);">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #000000 !important; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; background: none !important; -webkit-text-fill-color: initial !important; -webkit-background-clip: initial !important; filter: none;"><span style="color: var(--accent) !important; font-weight: 800;">04/</span> DOES</h3>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #000000 !important; font-size: 0.92rem; line-height: 1.7; list-style-type: disc;">
+                                    <li style="margin-bottom: 0.5rem; color: #000000 !important;">Scrolls manually through Media, Links, Docs daily</li>
+                                    <li style="margin-bottom: 0; color: #000000 !important;">Asks classmates to resend files when can't find them</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- User Persona -->
+                    <section class="case-section" id="persona">
+                        <h2>User Persona</h2>
+                        <div class="persona-card" style="margin-top: 2rem; background: linear-gradient(135deg, #ffffff 0%, var(--bg-secondary) 100%); border: 1.5px solid rgba(99, 102, 241, 0.2); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: 0 15px 35px rgba(99, 102, 241, 0.04); display: flex; flex-direction: column; gap: 2rem;">
+                            <!-- Header Grid -->
+                            <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #ffffff; font-weight: 800; box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);">
+                                    A
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                                    <h3 style="font-size: 1.75rem; font-weight: 800; color: #000000 !important; margin: 0; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Arjun</h3>
+                                    <span style="font-size: 1.05rem; font-weight: 700; color: var(--text-secondary);">27 | Male | Software Engineer | Chennai</span>
+                                </div>
+                            </div>
+
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 0;">
+
+                            <!-- Content Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                                <!-- Left Column: Background, Scenario & Quote -->
+                                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                    <!-- Background -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(99, 102, 241, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Background</h4>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; font-weight: 600;">
+                                            Uses WhatsApp for professional discussions, project updates, and sharing technical documents with colleagues.
+                                        </p>
+                                    </div>
+
+                                    <!-- Scenario -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(99, 102, 241, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Scenario</h4>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; font-weight: 600;">
+                                            While preparing project updates, Arjun needs to find an old document shared months ago but struggles to locate it among hundreds of messages.
+                                        </p>
+                                    </div>
+
+                                    <!-- User Quote -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(236, 72, 153, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">User Quote</h4>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; font-weight: 600; font-style: italic;">
+                                            "I often remember receiving a file but spend a lot of time scrolling through chats to find it."
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Right Column: Goals, Pain Points & Design Implication -->
+                                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                    <!-- Goals -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Goals</h4>
+                                        <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7; color: #334155; font-weight: 600; list-style-type: disc;">
+                                            <li style="margin-bottom: 0.5rem; color: #334155 !important;">Quickly find shared files</li>
+                                            <li style="margin-bottom: 0.5rem; color: #334155 !important;">Organize media, links, and documents efficiently</li>
+                                            <li style="margin-bottom: 0; color: #334155 !important;">Save time while searching conversations</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Pain Points -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Pain Points</h4>
+                                        <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7; color: #334155; font-weight: 600; list-style-type: disc;">
+                                            <li style="margin-bottom: 0.5rem; color: #334155 !important;">Important documents get buried in chats</li>
+                                            <li style="margin-bottom: 0.5rem; color: #334155 !important;">No sorting based on date, size, or file type</li>
+                                            <li style="margin-bottom: 0; color: #334155 !important;">Manual searching takes time</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Design Implication -->
+                                    <div class="hero-ux-info-item" style="background: #ffffff; border: 1px solid rgba(139, 92, 246, 0.15); border-radius: 12px; padding: 1.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: var(--transition-bounce);">
+                                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #000000 !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Design Implication</h4>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; font-weight: 600;">
+                                            Introduce smart sorting options for media, links, and documents based on date, name, and file size.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Competitor Analysis -->
+                    <section class="case-section" id="competitor-analysis">
+                        <h2>Competitor Analysis</h2>
+                        <p>
+                            To identify product opportunities, this analysis evaluates the content organization features, strengths, and constraints of key messaging competitors in the industry.
+                        </p>
+                        <div class="analysis-table-container">
+                            <table class="analysis-table">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: left !important;">Competitor</th>
+                                        <th style="text-align: left !important;">Content Organization Features</th>
+                                        <th style="text-align: left !important;">Strengths</th>
+                                        <th style="text-align: left !important;">Limitations</th>
+                                        <th style="text-align: left !important;">Design Opportunity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Telegram</strong></td>
+                                        <td>Provides separate tabs for Media, Files, Links, Music, and Voice messages with search and filtering options.</td>
+                                        <td>Strong content organization and easy access to shared files.</td>
+                                        <td>Large number of categories can feel overwhelming.</td>
+                                        <td>Provide simple sorting options with clear hierarchy.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Google Chat</strong></td>
+                                        <td>Organizes shared files and links with integration to Google Drive.</td>
+                                        <td>Efficient document management for professional communication.</td>
+                                        <td>Less suitable for casual conversations and media-heavy chats.</td>
+                                        <td>Design a lightweight sorting experience for everyday users.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Microsoft Teams</strong></td>
+                                        <td>Provides structured file organization within chats and channels.</td>
+                                        <td>Excellent for work-related file management.</td>
+                                        <td>More complex compared to personal messaging apps.</td>
+                                        <td>Bring professional-level organization into a simple chat experience.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>WhatsApp (Current)</strong></td>
+                                        <td>Provides Media, Links, and Docs tabs inside chat info.</td>
+                                        <td>Familiar and easy access to shared content.</td>
+                                        <td>No sorting by date, size, file type, or name; users manually scroll.</td>
+                                        <td>Introduce <strong>Smart Sorting and filtering options</strong> for faster discovery.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Key Opportunity Callout -->
+                        <div class="opportunity-callout" style="margin-top: 2.25rem; background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%); border-left: 4px solid var(--accent); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 1.5rem 2rem; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);">
+                            <h4 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none;">Key Opportunity Identified</h4>
+                            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin: 0; font-weight: 600;">
+                                Current messaging apps provide content grouping, but there is an opportunity to improve discoverability through smart sorting options like date, file type, sender, and size while keeping the experience simple.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Design Solution -->
+                    <section class="case-section" id="solution">
+                        <h2>Design Solution</h2>
+                        <p>
+                            Introduced a 'Sort By' action item within the shared Media, Links, and Docs page options menu. This allows users to dynamically sort and reorganize shared files by date, size, or name directly within each respective tab.
+                        </p>
+                        
+                        <div class="before-after-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; justify-content: center;">
+                            <!-- Before Box -->
+                            <div class="comparison-box" style="flex: 1; min-width: 250px; max-width: 320px; background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; box-shadow: var(--shadow-sm);">
+                                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial; filter: none;">Before: Old screen</h4>
+                                <div style="border-radius: 28px; overflow: hidden; border: 8px solid #1f2937; background: #000; aspect-ratio: 9/19.5; width: 100%; max-width: 240px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), inset 0 0 4px rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center;">
+                                    <img src="assets/Media,Links,Docs_Page.png" alt="Before: Old Screen" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                            <!-- After Box -->
+                            <div class="comparison-box" style="flex: 1; min-width: 250px; max-width: 320px; background-color: var(--bg-primary); border: 1px solid rgba(37, 99, 235, 0.15); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; box-shadow: var(--shadow-sm);">
+                                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; margin-bottom: 1.25rem; background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 0.05em; filter: none;">After: Redesigned Screen</h4>
+                                <div style="border-radius: 28px; overflow: hidden; border: 8px solid #1f2937; background: #000; aspect-ratio: 9/19.5; width: 100%; max-width: 240px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), inset 0 0 4px rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center;">
+                                    <img src="assets/Media,Links,Docs_Page_SortBy.png" alt="After: Redesigned Screen" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Information architecture -->
+                    <section class="case-section" id="ia">
+                        <h2>Information architecture</h2>
+                        <p>
+                            Mapping how the filtering mechanism and tab configurations (Media, Docs, Links) coexist with sorting rules inside the conversation info repository.
+                        </p>
+                        <div class="ia-image-wrapper" style="margin-top: 2rem; border-radius: var(--radius-md); overflow: hidden; width: 100%; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); background-color: #ffffff; padding: 2.5rem 1.5rem; display: flex; justify-content: center;">
+                            <img src="assets/whatsapp_sort_by_IA.svg" alt="Information Architecture - Smart Content Sorting" style="max-width: 100%; height: auto; display: block;">
+                        </div>
+                    </section>
+
+                    <!-- User Flow -->
+                    <section class="case-section" id="userflow">
+                        <h2>User Flow</h2>
+                        <p style="margin-bottom: 2rem;">
+                            Visualizing the sequence of clicks to trigger the bottom sort sheet, toggle active preferences, and instantly view the updated results list without step numbers.
+                        </p>
+                        
+                        <div class="user-flowchart" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: 2rem;">
+                            <!-- Gradient Definition -->
+                            <svg width="0" height="0" style="position: absolute;">
+                              <defs>
+                                <linearGradient id="arrowGradient" x1="0" y1="0" x2="0" y2="1">
+                                  <stop offset="0%" stop-color="#6366f1" />
+                                  <stop offset="100%" stop-color="#ec4899" />
+                                </linearGradient>
+                              </defs>
+                            </svg>
+                            
+                            <!-- Node 1 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Launch WhatsApp</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">App opens to chats list</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 2 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Chats Home Screen</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">All conversations listed</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 3 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Select a Chat</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Tap any conversation</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 4 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Chat Screen</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Messages visible in thread</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 5 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Tap Contact Info / Group Header</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Opens Chat Settings & Shared Media</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 6 -->
+                            <div class="flow-node flow-node-accent" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Select 'Media, Links, and Docs'</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Opens the shared content manager</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 7 -->
+                            <div class="flow-node" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Shared Media Manager</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Default active tab displays media grid</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 8 -->
+                            <div class="flow-node flow-node-accent" style="padding: 0.85rem 1.25rem; text-align: center; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem;">Tap Options Menu (⋮)</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Top-right corner where 'Sort by' appears</span>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Node 9 -->
+                            <div class="flow-node" style="padding: 1.25rem 1.75rem; text-align: left; width: 100%; max-width: 340px;">
+                                <strong style="display: block; font-size: 0.95rem; text-align: center; margin-bottom: 0.75rem;">Sort Options Menu</strong>
+                                <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="radio" disabled> Name: A - Z</div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="radio" disabled> Name: Z - A</div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="radio" disabled> Date: Oldest First</div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="radio" checked disabled style="accent-color: var(--accent);"> Date: Newest First</div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="radio" disabled> Size: Smallest First</div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;"><input type="radio" disabled> Size: Largest First</div>
+                                </div>
+                            </div>
+                            
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            
+                            <!-- Split Row: Save vs Cancel -->
+                            <div style="display: flex; gap: 1rem; width: 100%; max-width: 450px; justify-content: center;">
+                                <!-- Save Branch -->
+                                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                                    <div class="flow-node flow-node-success" style="width: 100%; padding: 0.85rem 1rem; text-align: center;">
+                                        <strong style="display: block; font-size: 0.9rem;">Select Sorting Rule</strong>
+                                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Tap option to apply</span>
+                                    </div>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                                    <div class="flow-node flow-node-success" style="width: 100%; padding: 0.85rem 1rem; text-align: center;">
+                                        <strong style="display: block; font-size: 0.9rem;">Dynamic Refresh</strong>
+                                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Sorted list updates in real-time</span>
+                                    </div>
+                                </div>
+                                <!-- Cancel Branch -->
+                                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                                    <div class="flow-node flow-node-danger" style="width: 100%; padding: 0.85rem 1rem; text-align: center;">
+                                        <strong style="display: block; font-size: 0.9rem;">Dismiss Sheet</strong>
+                                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Tap outside or swipe down</span>
+                                    </div>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                                    <div class="flow-node flow-node-danger" style="width: 100%; padding: 0.85rem 1rem; text-align: center;">
+                                        <strong style="display: block; font-size: 0.9rem;">Prior State Kept</strong>
+                                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Returns to view without changes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- High Fidelity UI Design -->
+                    <section class="case-section" id="hifi">
+                        <h2>High Fidelity UI Design</h2>
+                        <p style="margin-bottom: 2rem;">
+                            The high-fidelity mockups show the user journey from launching WhatsApp through to selecting a sort option inside the Media, Links, or Docs tab of a chat. Each screen is designed to integrate seamlessly into WhatsApp's clean interface style, ensuring controls are easy to find and use.
+                        </p>
+                        <div class="gallery-container">
+                            <div class="whatsapp-solution-gallery" style="display: flex; flex-wrap: wrap; gap: 1.5rem 1rem; justify-content: center; align-items: flex-start;">
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Splash Screen</span>
+                                    <div class="gallery-phone"><img src="assets/WhatsApp_FirstPage.png" alt="WhatsApp Splash Page"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Launches messaging application</span>
+                                </div>
+                                
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Home Screen</span>
+                                    <div class="gallery-phone"><img src="assets/WhatsApp_Home_Page.png" alt="WhatsApp Home Page"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Lists active chat threads</span>
+                                </div>
+
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Chat Screen</span>
+                                    <div class="gallery-phone"><img src="assets/Chat_Page.png" alt="Chat Screen"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Opens conversation window</span>
+                                </div>
+
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Options Menu</span>
+                                    <div class="gallery-phone"><img src="assets/Chat_Page_Options.png" alt="Options Menu"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Accesses thread settings</span>
+                                </div>
+
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Shared Media</span>
+                                    <div class="gallery-phone"><img src="assets/Media,Links,Docs_Page.png" alt="Shared Media"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Displays shared items repository</span>
+                                </div>
+
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Sort By Menu</span>
+                                    <div class="gallery-phone"><img src="assets/Media,Links,Docs_Page_SortBy.png" alt="Sort By Menu"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Triggers sorting dropdown list</span>
+                                </div>
+
+                                <!-- Flow Arrow -->
+                                <div class="gallery-flow-arrow" style="align-self: flex-start; margin-top: 310px; color: var(--accent); opacity: 0.8;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 8px rgba(147, 85, 247, 0.4)); animation: pulseArrow 2s infinite ease-in-out;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </div>
+
+                                <div class="gallery-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.85rem; text-align: center;">
+                                    <span class="phone-heading" style="font-weight: 800; font-size: 1.15rem; color: var(--text-primary); font-family: var(--font-heading);">Sorted Results</span>
+                                    <div class="gallery-phone"><img src="assets/Media,Links,Docs_Page_SortBySelect.png" alt="Sorted Results"></div>
+                                    <span style="font-size: 0.95rem; color: #000000 !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Reorders items dynamically</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Impact & Learnings -->
+                    <section class="case-section" id="impact-learnings" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; border: none; background: transparent; padding: 0; box-shadow: none; margin-bottom: 3rem;">
+                        <!-- Impact Box -->
+                        <div class="impact-box" style="background: linear-gradient(135deg, #ffffff 65%, rgba(16, 185, 129, 0.05) 100%); border: 1.5px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 2.5rem 2rem; box-shadow: 0 15px 35px rgba(16, 185, 129, 0.08); transition: var(--transition-smooth); display: flex; flex-direction: column; gap: 1.5rem;">
+                            <h2 style="font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #047857 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; margin-bottom: 0; padding-bottom: 0;">Impact</h2>
+                            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.15); color: #047857; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Improved content discoverability by helping users quickly find media, links, and documents within conversations.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.15); color: #047857; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Reduced the time and effort required to search through large chat histories.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.15); color: #047857; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Enabled users to organize shared content based on relevant criteria such as date, file type, name, and size.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.15); color: #047857; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Created a smoother content management experience for users handling large volumes of shared files.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Learnings Box -->
+                        <div class="learnings-box" style="background: linear-gradient(135deg, #ffffff 65%, rgba(99, 102, 241, 0.05) 100%); border: 1.5px solid rgba(99, 102, 241, 0.25); border-radius: var(--radius-md); padding: 2.5rem 2rem; box-shadow: 0 15px 35px rgba(99, 102, 241, 0.08); transition: var(--transition-smooth); display: flex; flex-direction: column; gap: 1.5rem;">
+                            <h2 style="font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: none; margin-bottom: 0; padding-bottom: 0;">Learnings</h2>
+                            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.15); color: #4f46e5; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">★</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Users need efficient ways to manage growing amounts of digital content without increasing complexity.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.15); color: #4f46e5; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">★</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Understanding user search patterns helps create meaningful sorting and organization options.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.15); color: #4f46e5; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">★</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Simple navigation improvements can significantly enhance productivity and reduce user frustration.</p>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                    <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.15); color: #4f46e5; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">★</span>
+                                    <p style="font-size: 1.05rem; line-height: 1.6; color: #000000; margin: 0; font-weight: 600;">Designing for different contexts (students, professionals, and personal users) helps create more inclusive solutions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div>© 2026 Kavitha Bharathi G. All rights reserved.</div>
+            <div class="footer-socials">
+                <a href="#" class="footer-social-link interactive">LinkedIn</a>
+                <a href="#" class="footer-social-link interactive">Dribbble</a>
+                <a href="#" class="footer-social-link interactive">Behance</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
