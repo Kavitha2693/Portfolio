@@ -55,3 +55,26 @@ if (contactForm) {
         contactForm.reset();
     });
 }
+
+// --- MOBILE MENU TOGGLE ---
+const menuToggle = document.querySelector('.menu-toggle');
+const navRight = document.querySelector('.nav-right');
+
+if (menuToggle && navRight) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navRight.classList.toggle('active');
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navRight.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close menu when a link is clicked
+    const navLinks = navRight.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navRight.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+}
