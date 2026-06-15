@@ -1176,7 +1176,7 @@ img {
     border-radius: 6px;
 }
 .about-introduction-box {
-    background: linear-gradient(135deg, #93c5fd 0%, #ffffff 45%, #ffffff 55%, #3b82f6 100%);
+    background: linear-gradient(135deg, rgba(147, 197, 253, 0.15) 0%, #ffffff 50%, rgba(59, 130, 246, 0.12) 100%);
     border: 1px solid var(--border-color);
     border-top: none;
     border-top-left-radius: 0;
