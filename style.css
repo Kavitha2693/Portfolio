@@ -541,6 +541,12 @@ img {
     color: var(--text-secondary);
 }
 
+.work-content-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .work-title {
     font-size: 1.75rem;
     margin-bottom: 0.75rem;
