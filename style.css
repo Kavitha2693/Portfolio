@@ -2006,6 +2006,30 @@ img {
     .about-box, .services-box, .contact-wrapper {
         padding: 2rem 1.25rem !important;
         gap: 2rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .about-grid-info {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+    }
+    
+    .sub-box {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+    }
+    
+    .service-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     .about-header-wrapper {
