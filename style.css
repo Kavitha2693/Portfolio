@@ -119,7 +119,7 @@ img {
 
 /* Section Header */
 .section-header {
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
 }
 .section-tag {
     font-family: var(--font-heading);
@@ -985,10 +985,9 @@ img {
     border-radius: var(--radius-lg);
     padding: 3.5rem;
     box-shadow: var(--shadow-lg);
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 2.5rem;
 }
 .about-header-wrapper {
     display: flex;
@@ -1207,7 +1206,6 @@ img {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
-    margin-top: 2rem;
 }
 
 .contact-info {
@@ -1318,7 +1316,7 @@ img {
     box-shadow: var(--shadow-lg);
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 2.5rem;
 }
 
 .services-box .section-header {
