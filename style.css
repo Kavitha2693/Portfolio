@@ -994,7 +994,7 @@ img {
     flex-direction: column;
 }
 #about .section-tag, .selected-projects-title, .core-expertise-tag {
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
     font-weight: 800;
     text-transform: none;
     letter-spacing: -0.01em;
