@@ -102,9 +102,9 @@ img {
 /* --- UTILITY CLASSES --- */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 3rem;
 }
 
 .section-padding {
@@ -185,7 +185,7 @@ img {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2.5rem;
 }
 
 .nav-item-box {
@@ -1462,7 +1462,7 @@ img {
 .project-feature-col {
     flex: 1;
     min-width: 250px;
-    max-width: 550px;
+    max-width: 650px;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
