@@ -830,7 +830,8 @@ img {
         transform: translateY(-8px);
     }
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
     }
     #about .section-title {
         font-size: 2.5rem;
@@ -840,7 +841,7 @@ img {
         gap: 2.5rem;
     }
     .about-grid-info {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
     }
     .about-intro-title {
@@ -851,7 +852,8 @@ img {
     }
     .contact-wrapper {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 3rem;
+        padding: 2.5rem 1.5rem;
     }
 }
 
@@ -993,7 +995,7 @@ img {
     flex-direction: column;
 }
 #about .section-tag, .selected-projects-title, .core-expertise-tag {
-    font-size: 5rem;
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 800;
     text-transform: none;
     letter-spacing: -0.01em;
@@ -1003,9 +1005,11 @@ img {
     filter: drop-shadow(2px 2px 4px rgba(15, 23, 42, 0.15));
     margin-bottom: 2.5rem;
     display: inline-block;
+    word-wrap: break-word;
+    max-width: 100%;
 }
 .lets-connect-tag {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 800;
     text-transform: none;
     letter-spacing: -0.01em;
@@ -1015,7 +1019,9 @@ img {
     filter: drop-shadow(2px 2px 4px rgba(15, 23, 42, 0.15));
     margin-bottom: 1.5rem;
     display: inline-block;
-    white-space: nowrap;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 100%;
 }
 .whatsapp-redesign-title {
     font-size: 2.5rem;
@@ -1994,6 +2000,88 @@ img {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    /* About, Core Expertise, Let's Connect, and Footer Mobile Customizations */
+    .about-box, .services-box, .contact-wrapper {
+        padding: 2rem 1.25rem !important;
+        gap: 2rem !important;
+    }
+    
+    .about-header-wrapper {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .about-intro-title {
+        text-align: center;
+        width: 100%;
+        font-size: 1.8rem !important;
+    }
+    
+    .about-bios {
+        text-align: left;
+    }
+
+    .services-box .section-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-info {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .contact-details-list {
+        align-items: center;
+        width: 100%;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .contact-text-value {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .contact-submit-btn {
+        width: 100%;
+    }
+    
+    .footer {
+        padding: 2.5rem 0 !important;
+    }
+    
+    .footer .container {
+        flex-direction: column !important;
+        gap: 1.25rem !important;
+        text-align: center !important;
+    }
+    
+    .footer-socials {
+        justify-content: center !important;
+        gap: 1.5rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-box, .services-box, .contact-wrapper {
+        padding: 1.5rem 1rem !important;
+        gap: 1.5rem !important;
+    }
+    .sub-box {
+        padding: 1.5rem 1.25rem !important;
+    }
+    .about-intro-title {
+        font-size: 1.5rem !important;
+    }
+    .contact-title {
+        font-size: 1.35rem !important;
     }
 }
 
