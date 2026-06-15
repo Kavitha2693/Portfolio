@@ -1318,7 +1318,11 @@ img {
     box-shadow: var(--shadow-lg);
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 1.75rem;
+}
+
+.services-box .section-header {
+    margin-bottom: 0;
 }
 
 #modalCloseBtn {
