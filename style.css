@@ -63,7 +63,7 @@ html {
 }
 
 body {
-    background: #ffffff;
+    background: #FAFAFA;
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
@@ -299,7 +299,7 @@ img {
     width: 100vw;
     height: 100vh;
     background-image: none;
-    background-color: #ffffff;
+    background-color: #FAFAFA;
     z-index: -10;
     pointer-events: none;
     transition: var(--transition-smooth);
