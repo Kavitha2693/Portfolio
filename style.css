@@ -1477,9 +1477,10 @@ img {
 }
 
 .project-feature-col:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--accent);
+    transform: translateY(-6px) scale(1.025);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.12), 0 5px 15px rgba(0, 0, 0, 0.04);
+    border-color: #3b82f6;
+    background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%) !important;
 }
 
 .work-hero-image-wrapper:hover img {
