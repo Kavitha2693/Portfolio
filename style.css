@@ -132,7 +132,7 @@ img {
     display: inline-block;
 }
 .section-title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 4.5vw, 2.5rem);
     font-weight: 800;
     letter-spacing: -0.02em;
 }
