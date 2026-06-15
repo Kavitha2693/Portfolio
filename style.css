@@ -438,6 +438,7 @@ img {
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-lg);
 }
 
 .work-card:hover {
