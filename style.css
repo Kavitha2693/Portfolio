@@ -1462,6 +1462,7 @@ img {
 .project-feature-col {
     flex: 1;
     min-width: 250px;
+    max-width: 420px;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
