@@ -1233,11 +1233,11 @@ img {
 }
 .intro-tag-badge {
     display: inline-block;
-    padding: 0.35rem 1rem;
+    padding: 0.5rem 1.25rem;
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     font-family: var(--font-heading);
     font-weight: 800;
     background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%);
@@ -1284,7 +1284,7 @@ img {
     box-shadow: var(--shadow-lg);
 }
 .intro-title-greeting {
-    font-size: clamp(2.5rem, 6vw, 3.6rem);
+    font-size: clamp(2.8rem, 6.5vw, 4rem);
     font-weight: 800;
     margin-bottom: 0.5rem;
     line-height: 1.2;
@@ -1300,7 +1300,7 @@ img {
     filter: drop-shadow(2px 2px 4px rgba(15, 23, 42, 0.1));
 }
 .about-bio {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 1.85;
     color: #000000;
 }
