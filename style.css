@@ -982,7 +982,11 @@ img {
 .about-box {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-bottom: none;
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     padding: 3.5rem;
     box-shadow: var(--shadow-lg);
     display: flex;
@@ -1179,13 +1183,17 @@ img {
 .about-introduction-box {
     background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #DBEAFE 100%);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
     padding: 3rem 3.5rem;
     box-shadow: var(--shadow-lg);
     display: flex;
     align-items: center;
     gap: 3.5rem;
-    margin-top: 2.5rem;
+    margin-top: 0;
     box-sizing: border-box;
 }
 .intro-left {
@@ -1193,6 +1201,20 @@ img {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+}
+.intro-tag-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
 }
 .intro-right {
     flex: 0.7;
@@ -1216,11 +1238,18 @@ img {
 .intro-title-greeting {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+.intro-greeting-text {
+    color: #000000;
+    -webkit-text-fill-color: #000000;
+}
+.intro-greeting-name {
     background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(2px 2px 4px rgba(15, 23, 42, 0.1));
-    margin-bottom: 0.5rem;
 }
 .about-bio {
     font-size: 1.05rem;
