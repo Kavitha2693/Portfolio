@@ -1191,16 +1191,15 @@ img {
     padding: 3rem 3.5rem;
     box-shadow: var(--shadow-lg);
     display: flex;
-    align-items: center;
-    gap: 3.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
     margin-top: 0;
     box-sizing: border-box;
 }
-.intro-left {
-    flex: 1.15;
+.intro-badge-wrapper {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    justify-content: flex-start;
 }
 .intro-tag-badge {
     display: inline-block;
@@ -1219,23 +1218,39 @@ img {
     letter-spacing: 0.05em;
     margin-bottom: 0.25rem;
 }
+.intro-content-row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 3.5rem;
+    width: 100%;
+}
+.intro-left {
+    flex: 1.15;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
 .intro-right {
     flex: 0.85;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 }
 .intro-avatar {
     width: 100%;
-    max-width: 350px;
-    height: auto;
+    max-width: 380px;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
     transition: var(--transition-bounce);
 }
 .intro-avatar:hover {
-    transform: scale(1.03) translateY(-4px);
+    transform: scale(1.02) translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
 .intro-title-greeting {
@@ -2105,19 +2120,28 @@ img {
     }
     
     .about-introduction-box {
-        flex-direction: column-reverse !important;
+        flex-direction: column !important;
         padding: 2rem 1.25rem !important;
-        gap: 2rem !important;
-        margin-top: 2rem !important;
+        gap: 1.5rem !important;
+        margin-top: 0 !important;
         width: 100% !important;
         box-sizing: border-box !important;
+    }
+    .intro-badge-wrapper {
+        justify-content: center !important;
+    }
+    .intro-content-row {
+        flex-direction: column-reverse !important;
+        gap: 2rem !important;
+        width: 100% !important;
     }
     .intro-left, .intro-right {
         flex: 1 !important;
         width: 100% !important;
     }
     .intro-avatar {
-        max-width: 220px !important;
+        height: auto !important;
+        max-width: 280px !important;
     }
     .intro-title-greeting {
         text-align: center;
