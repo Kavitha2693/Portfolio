@@ -1027,7 +1027,7 @@ img {
     max-width: 100%;
 }
 .whatsapp-redesign-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.1rem, 4.8vw, 3.1rem);
     font-weight: 800;
     text-transform: none;
     letter-spacing: -0.01em;
@@ -1037,6 +1037,9 @@ img {
     filter: drop-shadow(2px 2px 4px rgba(15, 23, 42, 0.15));
     margin-bottom: 0.75rem;
     display: inline-block;
+}
+.work-card .selected-projects-title {
+    margin-bottom: 0.5rem;
 }
 .about-grid-info {
     display: grid;
@@ -1254,7 +1257,7 @@ img {
     box-shadow: var(--shadow-lg);
 }
 .intro-title-greeting {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.5rem, 6vw, 3.6rem);
     font-weight: 800;
     margin-bottom: 0.5rem;
     line-height: 1.2;
