@@ -1209,6 +1209,7 @@ img {
     border: 1px solid var(--border-color);
     border-radius: 50px;
     font-size: 0.85rem;
+    font-family: var(--font-heading);
     font-weight: 800;
     background: linear-gradient(135deg, #1E3A8A 0%, #60A5FA 100%);
     -webkit-background-clip: text;
