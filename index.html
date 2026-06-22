@@ -9,6 +9,13 @@
 </head>
 <body class="home-page-body">
 
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Interactive Background Canvas -->
+    <canvas id="mesh-canvas"></canvas>
+
     <!-- Graphic Design Background Elements -->
     <div class="bg-graphics-container">
         <!-- SVG 3D Swirl Ribbons resembling the Windows 11 default flow background in the attached image -->
@@ -45,65 +52,111 @@
     </div>
 
     <!-- Navigation Header -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar reveal" id="navbar">
         <div class="container">
             <a href="#" class="logo interactive">
                 Kavitha Bharathi<span class="logo-dot"></span>
             </a>
-            <button class="menu-toggle" aria-label="Toggle Navigation">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <line x1="3" y1="6" x2="21" y2="6" class="line-1"></line>
-                    <line x1="3" y1="12" x2="21" y2="12" class="line-2"></line>
-                    <line x1="3" y1="18" x2="21" y2="18" class="line-3"></line>
-                </svg>
-            </button>
             <div class="nav-right">
                 <a href="#home" class="nav-item-box interactive">Home</a>
-                <a href="#about" class="nav-item-box interactive">About</a>
                 <a href="#work" class="nav-item-box interactive">Project</a>
+                <a href="#about" class="nav-item-box interactive">About</a>
                 <a href="#contact" class="nav-item-box interactive lets-talk-nav">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- UX/UI Designer Hero Section -->
-    <header class="hero" id="home">
+    <!-- New Hero Section -->
+    <header class="hero reveal" id="home">
         <div class="hero-bg">
             <div class="hero-glow-1"></div>
             <div class="hero-glow-2"></div>
             <div class="hero-glow-3"></div>
         </div>
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-box">
-                    <span class="hero-intro">UX/UI Designer</span>
-                    <h1 class="hero-title">Designing seamless digital products that connect with users.</h1>
-                    
-                    <div class="hero-ux-info">
-                        <div class="hero-ux-info-item">
-                            <h3><span style="color: var(--accent);">01/</span> User Experience (UX)</h3>
-                            <p>Analyzing user goals, behaviors, and pain points to design logical wireframes and seamless interactive journeys.</p>
+            <div class="hero-content-new">
+                <div class="hero-card-new interactive">
+                    <div class="hero-left-col">
+                        <p class="hero-hello">Hi, I'm Kavitha</p>
+                        <h1 class="hero-title-new">UX/UI Designer</h1>
+                        <p class="hero-tagline">I create user-focused digital experiences that connect people and technology through thoughtful design and transform user needs into simple, intuitive, and engaging digital experiences</p>
+                        <div class="hero-action-new">
+                            <a href="#contact" class="btn-primary interactive open-opps-btn">
+                                <span>Open to opportunities</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition: transform 0.3s ease;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
                         </div>
-                        <div class="hero-ux-info-item">
-                            <h3><span style="color: var(--accent);">02/</span> User Interface (UI)</h3>
-                            <p>Crafting modern, accessible layouts, responsive components, and consistent visual systems across platforms.</p>
-                        </div>
-                        <div class="hero-ux-info-item">
-                            <h3><span style="color: var(--accent);">03/</span> Product Design</h3>
-                            <p>Bridging structure and aesthetics to deliver engaging, user-centered digital solutions that solve real-world problems.</p>
-                        </div>
+                    </div>
+                    <div class="hero-right-col">
+                        <img src="assets/photoimage.png" alt="Kavitha Bharathi G — UX/UI Designer" class="hero-avatar">
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- About Me Section -->
+    <!-- Featured Projects Section -->
+    <section class="section-padding reveal" id="work">
+        <div class="container">
+            <div class="work-grid">
+                <!-- Combined Case Study -->
+                <div class="work-card interactive" style="grid-column: span 2; width: 100%;">
+                    <div class="work-info">
+                        <div class="work-content-group">
+                            <span class="selected-projects-title">Selected Work</span>
+                            <h3 class="work-title whatsapp-redesign-title"><span class="whatsapp-text">Whatsapp</span> <span class="redesign-text">Redesign</span></h3>
+                            
+                            <div class="work-hero-image-wrapper" style="margin: 1.5rem auto 2.5rem auto; border-radius: var(--radius-md); overflow: hidden; width: 100%; max-width: 750px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); transition: var(--transition-smooth); align-self: center;">
+                                <img src="assets/whatsapp_hero.jpg" alt="WhatsApp Redesign Mockup" style="width: 100%; height: auto; display: block; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+                            </div>
+                            
+                            <div class="project-features-columns">
+                                <div class="project-feature-col">
+                                    <span class="project-feature-pill">Feature 1: Granular Media Auto-Download</span>
+                                    <a href="granular_media_downloads.html" class="work-link">View Case Study</a>
+                                </div>
+                                <div class="project-feature-col">
+                                    <span class="project-feature-pill">Feature 2: Smart Content Sorting</span>
+                                    <a href="smart_content_sorting.html" class="work-link">View Case Study</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me / Introduction Section -->
     <section class="section-padding reveal" id="about">
+        <div class="container">
+            <div class="about-introduction-box">
+                <div class="intro-badge-wrapper">
+                    <span class="intro-tag-badge">About Me</span>
+                </div>
+                <div class="intro-content-row">
+                    <div class="intro-left">
+                        <p class="about-bio">
+                            I am an UX/UI Designer passionate about creating user-centered digital experiences that are both functional and visually appealing.
+                        </p>
+                        <p class="about-bio">
+                            For example, when users struggle with a complicated sign-up process, I analyze their pain points, simplify the user flow, and create intuitive designs that improve the overall experience. My goal is to design products that are easy to use, accessible, and impactful.
+                        </p>
+                        <p class="about-bio">
+                            I believe that successful design is about balancing user needs, business goals, and usability principles to create meaningful experiences that people love to use.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education, Skills & Tools Section -->
+    <section class="section-padding reveal" id="skills-edu">
         <div class="container">
             <div class="about-box">
                 <div class="about-header-wrapper">
-                    <span class="section-tag">About Me</span>
+                    <span class="section-tag">Education & Skills</span>
                 </div>
 
                 <!-- Education, Skills & Tools Grid -->
@@ -167,62 +220,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <!-- Introduction Section (Separate Box Attached to About Me) -->
-            <div class="about-introduction-box reveal">
-                <div class="intro-badge-wrapper">
-                    <span class="intro-tag-badge">Introduction</span>
-                </div>
-                <div class="intro-content-row">
-                    <div class="intro-left">
-                        <h3 class="intro-title-greeting"><span class="intro-greeting-text">I am</span> <span class="intro-greeting-name">Kavitha</span></h3>
-                        <p class="about-bio">
-                            UX/UI Designer passionate about creating user-centered digital experiences that are both functional and visually appealing.
-                        </p>
-                        <p class="about-bio">
-                            For example, when users struggle with a complicated sign-up process, I analyze their pain points, simplify the user flow, and create intuitive designs that improve the overall experience. My goal is to design products that are easy to use, accessible, and impactful.
-                        </p>
-                        <p class="about-bio">
-                            I believe that successful design is about balancing user needs, business goals, and usability principles to create meaningful experiences that people love to use.
-                        </p>
-                    </div>
-                    <div class="intro-right">
-                        <img src="assets/photoimage.png" alt="Kavitha Bharathi G — UX/UI Designer" class="intro-avatar">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Projects Section -->
-    <section class="section-padding reveal" id="work">
-        <div class="container">
-            <div class="work-grid">
-                <!-- Combined Case Study -->
-                <div class="work-card reveal interactive" style="grid-column: span 2; width: 100%;">
-                    <div class="work-info">
-                        <div class="work-content-group">
-                            <span class="selected-projects-title">Selected Project</span>
-                            <h3 class="work-title whatsapp-redesign-title"><span class="whatsapp-text">Whatsapp</span> <span class="redesign-text">Redesign</span></h3>
-                            
-                            <div class="work-hero-image-wrapper" style="margin: 1.5rem auto 2.5rem auto; border-radius: var(--radius-md); overflow: hidden; width: 100%; max-width: 750px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); transition: var(--transition-smooth); align-self: center;">
-                                <img src="assets/whatsapp_hero.jpg" alt="WhatsApp Redesign Mockup" style="width: 100%; height: auto; display: block; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
-                            </div>
-                            
-                            <div class="project-features-columns" style="display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; justify-content: center; width: 100%;">
-                                <div class="project-feature-col">
-                                    <span class="project-feature-pill">Feature 1: Granular Media Auto-Download</span>
-                                    <a href="granular_media_downloads.html" class="work-link">View Case Study</a>
-                                </div>
-                                <div class="project-feature-col">
-                                    <span class="project-feature-pill">Feature 2: Smart Content Sorting</span>
-                                    <a href="smart_content_sorting.html" class="work-link">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
