@@ -250,19 +250,6 @@ body.cursor-card-hover .custom-cursor-follower::after {
     -webkit-text-fill-color: transparent;
 }
 
-.logo-mark {
-    -webkit-text-fill-color: initial;
-    -webkit-background-clip: initial;
-    background: none;
-    transition: var(--transition-bounce);
-    flex-shrink: 0;
-}
-
-.logo:hover .logo-mark {
-    transform: scale(1.08) rotate(-4deg);
-    filter: drop-shadow(0 4px 12px rgba(124, 58, 237, 0.25));
-}
-
 .logo-dot {
     width: 8px;
     height: 8px;
